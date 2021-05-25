@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 
 
 const InputTodo = (props) => {
-    console.log(props);
+
     const [value, setValue] = useState('');
-    console.log(value);
 
     const handleClick = () => {
-        console.log(value);
+        
         if (value.trim() === '') {
             setValue('');
             return alert('Введите дело');
         } else {
             props.addTodo(value);
             setValue('');
-            console.log(props.todos)
         }
     }
     

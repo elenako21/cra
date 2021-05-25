@@ -18,24 +18,23 @@ function App() {
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('todos'))) {
-       console.log('первый отработал', todos);
       setTodos(JSON.parse(localStorage.getItem('todos')));
-     
     }
   }, //eslint-disable-next-line
   []);
 
   useEffect(() => {
-     console.log('второй отработал', todos);
     localStorage.setItem('todos',JSON.stringify(todos));
   }, [todos]);
 
 
   return (
     <div className="App">
+      <div className="allblock">
       <InputTodo todos={todos} addTodo={addTodo} />
       <TodoList todos={todos} addTodo={addTodo} delTodo={delTodo} toggleChecked={toggleChecked} />
     </div>
+  </div>
   );
 }
 
